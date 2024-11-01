@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Corazón</title>
+    <style>
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #c0392b;
+    --gold: #f1c40f;
+    --light-gold: rgba(241, 196, 15, 0.1);
+    --rose-gold: #b76e79;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    color: var(--primary-color);
+    background: linear-gradient(-45deg, #f5f7fa, #e8ecf1, #f1f3f6, #e3e7ed);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.letter {
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    margin-top: 4rem;
+}
+
+.corner-decoration {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--gold);
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: sparkle 2s infinite;
+}
+
+.sparkle-1 { top: 10%; left: 10%; animation-delay: 0s; }
+.sparkle-2 { top: 20%; right: 15%; animation-delay: 0.3s; }
+.sparkle-3 { bottom: 15%; left: 20%; animation-delay: 0.6s; }
+.sparkle-4 { bottom: 10%; right: 10%; animation-delay: 0.9s; }
+
+.letter::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--gold);
+}
+
+.graduation-cap {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    fill: var(--primary-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+.ribbon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.ribbon::before {
+    content: 'Con amor';
+    position: absolute;
+    top: 30px;
+    right: -35px;
+    background: var(--rose-gold);
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: var(--rose-gold);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.quote {
+    font-style: italic;
+    border-left: 4px solid var(--gold);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    background: var(--light-gold);
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote::after {
+    content: '"';
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    font-size: 80px;
+    color: rgba(241, 196, 15, 0.2);
+}
+
+.graduation-message {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    font-style: italic;
+    color: var(--accent-color);
+    background: var(--light-gold);
+    position: relative;
+}
+
+.graduation-message::before,
+.graduation-message::after {
+    content: '❦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.graduation-message::before {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.graduation-message::after {
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: 2rem;
+    color: var(--accent-color);
+    position: relative;
+}
+
+.signature::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color));
+}
+
+.date {
+    color: var(--accent-color);
+    text-align: center;
+    font-style: italic;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--light-gold);
+    border-radius: 5px;
+    position: relative;
+}
+
+.date::before,
+.date::after {
+    content: '♥';
+    position: absolute;
+    color: var(--accent-color);
+}
+
+.date::before {
+    left: 20px;
+}
+
+.date::after {
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .letter {
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .ribbon {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <article class="letter">
+            <div class="corner-decoration top-left"></div>
+            <div class="corner-decoration top-right"></div>
+            <div class="corner-decoration bottom-left"></div>
+            <div class="corner-decoration bottom-right"></div>
+            <svg class="graduation-cap" viewBox="0 0 24 24">
+                <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+            </svg>
+            <h1>Carta de Corazón</h1>
+            <h2>Para Heinny</h2>
+            <div class="content">
+                <p>Sinceramente no sé cuándo leas este mensaje, pero si en un momento llegas a leerlo es para decirte todas aquellas cosas que quedaron pendientes, aquellas que quizás en su momento me guardé, quizás otras las decía muy seguidas, quizás hay muchas promesas, sueños, metas que nunca pudimos llegar a cumplir juntos.</p>
+                
+                <p>Como sea, solo quiero que sepas que este mensaje te lo escribo con todo mi corazón y con mis ojos inundados de lágrimas. Es la manera en que me siento cuando te escribo estas palabras. Sinceramente no sé si algún día vuelva a verte o quizás eso no vuelva a suceder jamás.</p>
+                
+                <p>Pero estés donde estés, quiero decirte que siempre te llevaré en un lugar muy especial en mi corazón. Fuiste parte de mi vida, de mi historia. Aunque hace algún tiempo atrás dejamos de saber del uno al otro, jamás podremos negar que en un momento supimos conectarnos, en el que nuestras almas se encontraron y aprendieron una de la otra lo que necesitaban aprender en aquel momento.</p>
+                
+                <p>Quizás de manera irónica esté viviendo contigo un karma de mis decisiones pasadas. Son cosas muy distintas y están en diferentes contextos, pero es algo que estoy pagando. Eres maravillosa y tengo muchos adjetivos para describirte y ya quizás muchos ya te los haya dicho, solo que no dejes que nada ni nadie apague esa chispa que llevas por dentro.</p>
+                
+                <p>La verdad no sé qué depara el futuro ni para ti ni para mí, y como ya sabes, espero que sea el mejor posible. Pero si hay algo que me da vueltas, es que se cometieron muchos errores, pero lo único que me consume es la forma tan fácil en la que te dejé ir. Es cierto, como te dije, que respeto y siempre respetaré tus decisiones y opiniones, pero no debí dejarte ir tan fácilmente.</p>
+                
+                <p>Pensando en todo este tiempo que ha pasado, sé que es algo que probablemente no pase, pero deseo volverlo a intentar y que esta vez sí funcione. Independientemente de esto, sabes que puedes contar conmigo para lo que necesites, y que siempre me alegraré de tus metas y logros. No te consta, pero sabes que es así.</p>
+                
+                <p>Aunque no tuvimos una despedida que quizás no hubiese querido. Quizás nuestros destinos estaban así. Pero desde aquí, desde nuestra distancia, te deseo lo mejor. Pero desde aquí, desde la distancia, cierro definitivamente ese libro de mi vida en donde escribí muchas bonitas historias contigo. Pero lo hago con cariño, lo hago con el mismo cuidado y cautela, con el mismo amor que sentí por ti.</p>
+                
+                <p>No sé si algún día vuelva a sentir lo mismo que sentí contigo. Es decir, esa conexión que nunca había sentido con nadie más en mi vida. Es que, ¿cómo puedo explicarte lo que tanto nos decíamos con nuestras miradas cuando estábamos juntos? ¿Cómo explicarte lo que me hacía sentir con tan solo mirarte? ¿Cómo podré olvidar esas noches en donde nos quedamos despiertos compartiendo nuestros días, nuestros deseos de estar juntos en un futuro, en donde soñamos hacer muchas cosas juntos, en donde nos quedamos compartiendo nuestras ocurrencias siendo nosotros mismos?</p>
+                
+                <p>Te confieso algo, esta clase de cariño, este tipo de amor no se olvida fácilmente. Pero mi corazón está tranquilo. ¿Sabes por qué? Porque pude vivir cada momento a tu lado. Y me siento muy feliz de haber vivido contigo. Fuiste la persona que me acompañó en días en donde me sentí tan apagado y te quedaste ahí conmigo, acompañándome y haciéndome feliz.</p>
+                
+                <p>No te preocupes por mí seguiré siendo el mismo, con las mismas ganas de estar contigo, pero sin ti ¿Lo entiendes? En verdad fuiste y serás alguien muy especial para mí. Pero hoy debo guardarte en mi corazón.</p>
+                
+                <p>Agradecerte más que nada por todo lo que vivimos, por todas las cosas que decidiste compartir conmigo. Por haberte atrevido tanto y enseñarme que la conexión de personas no es cuestión de tiempo, sino de ganas. Por eso hoy te deseo lo mejor, lo más bonito, lo que siempre soñé para ti.</p>
+                
+                <p>Hoy como ayer le pido mucho a Dios por ti. Porque ahora me doy cuenta de que Dios es primero que todo ante una relación como la que tuvimos. Ahora le rezo mucho a Dios que siempre te cuide y que te lleve a esos lugares en los que algún día me contaste. Que nunca pierdas esa valentía, esa personalidad que tienes, tan tierna.</p>
+                
+                <p>Pero créeme que celebraré en silencio por cada meta que cumplas, por cada sueño que logres, aunque no esté contigo.</p>
+                
+                <div class="quote">
+                    <p>"Has invertido tu tiempo, energía y el corazón en todos estos años, y te aseguro que ese esfuerzo no ha sido en vano. A medida que avanzas a nuevos horizontes, llevarás todas las lecciones que has tenido y el impacto duradero que estas van a tener en el resto de tu vida. Eres y serás una ciudadana responsable, una aprendiz de por vida y, si tienes la oportunidad, una maestra que inspire a otros de la misma manera que todos los docentes que has tenido."</p>
+                </div>
+                
+                <p>Me quedo con varios recuerdos, no me debes nada… yo te lo debo todo. DEBES saber que contigo todo es destino.</p>
+                
+                <div class="date">
+                    <p>Para mí será importante el 26 de julio de este año donde todo comenzó.</p>
+                    <p>El comienzo de una breve historia.</p>
+                </div>
+                
+                <p>Créeme que me marcharé muy feliz sabiendo que estás mejor sin mí. Quizás no fui perfecto y cometí errores. Como ser humano sé que nadie es perfecto y que a veces fallamos. Pero créeme que aprenderé mucho de mis errores.</p>
+                
+                <p>Sé que ya pasó mucho tiempo desde aquel día que todo acabó, pero aun así te sigo queriendo como siempre te lo he dicho, aunque ya no estés conmigo.</p>
+                
+                <p>Por si algún día te acuerdas de mí, observa la noche, las estrellas, la luna y ten seguridad que en alguna parte del mundo estaré yo haciendo lo mismo por ti. A ti te mostré como siempre he sido, a ti te escribí lo que a nadie le he escrito… A ti te pertenece una parte de mi pasado, niña de ojos lindos.</p>
+                
+                <p>Por eso hoy te digo gracias, gracias por todo y por los bellos momentos. Porque fuiste la forma en la que Dios me dio a entender que el amor sí existe.</p>
+
+                <div class="graduation-message">
+                    <p>Tu graduación no es solo un logro académico, es un testimonio de tu luz interior que nunca dejó de brillar. Que este sea solo el comienzo de una vida llena de éxitos y sueños cumplidos.</p>
+                </div>
+                
+                <div class="signature">
+                    <p>Cuídate mucho…</p>
+                    <p>Muñoz</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
